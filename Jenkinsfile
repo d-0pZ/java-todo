@@ -2,7 +2,7 @@ pipeline {
   agent any
   tools {
     jdk 'jdk-17'
-    gradle 'Gradle-7.6'
+    gradle 'Gradle-8.5'
   }
   stages {
     stage('Clone repository') {
