@@ -13,9 +13,14 @@ pipeline {
                 git 'https://github.com/d-0pZ/java-todo.git'
             }
         }
-        stage('Build project') {
+        stage('Build') {
             steps {
+                withEnv(["JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64",
+                "PATH=/usr/lib/jvm/java-17-openjdk-amd64/bin:$PATH"
+                ]) {
+                    sh 'java -version'
                     sh 'gradle build'
+                }
             }
         }
         stage('Tests') {
